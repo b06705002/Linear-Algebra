@@ -20,10 +20,11 @@ def p2_has_cycle(sets):
     while index < matrixSize:
         
         matrixA = np.dot(matrixA, matrixB)
-        index += 1
 
         if findDiagonal(matrixA) == True:
             hasCycle = True
             break
+
+        index += 1
     
     return hasCycle

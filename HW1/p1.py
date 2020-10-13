@@ -6,16 +6,14 @@ def p1_has_cycle(sets):
         
     hasCycle = False
     matrix = np.array(sets)
-    matrixSize = len(matrix)
     index = 0
 
-    while index < matrixSize:
+    while index < len(matrix):
 
         midPoint = np.where(matrix[index] == 1)[0][0]
         startPoint = np.where(matrix[index] == -1)[0][0]
-        index += 1
         
-        for i in range(index, matrixSize):
+        for i in range(index+1, len(matrix)):
             if matrix[i][midPoint] == -1:
                 if matrix[i][startPoint] == 1:
                     hasCycle = True
@@ -25,5 +23,7 @@ def p1_has_cycle(sets):
 
         if hasCycle == True:
             break
+
+        index += 1
 
     return hasCycle
