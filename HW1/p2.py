@@ -15,13 +15,15 @@ def p2_has_cycle(sets):
     matrixA = np.array(sets)
     matrixB = np.array(sets)
     matrixSize = len(matrixA)
+    csrMatrixA = csr_matrix(matrixA)
+    csrMatrixB = csr_matrix(matrixB)
     index = 0
 
     while index < matrixSize:
         
-        matrixA = np.dot(matrixA, matrixB)
+        csrMatrixA = csrMatrixA.dot(csrMatrixB)
 
-        if findDiagonal(matrixA) == True:
+        if findDiagonal(csrMatrixA) == True:
             hasCycle = True
             break
 
